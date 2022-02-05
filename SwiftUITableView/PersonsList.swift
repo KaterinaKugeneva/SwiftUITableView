@@ -13,27 +13,17 @@ struct PersonsList: View {
     var body: some View {
         NavigationView {
             VStack {
-                
-                /*List {
-                    ForEach(persons, id: \.self) { person in
-                        HStack{
-                         Text(person.firstname)
-                         Text(person.lastname)
+                List(persons) { person in
+                    NavigationLink(destination: DetailsView(person:  person)) {
+                        VStack(alignment: .leading){
+                            Text(person.fullName)
                         }
                     }
-                }*/
-                
-                List(persons) { person in
-                                NavigationLink(destination: DetailsView(person:  person)) {
-                                    VStack(alignment: .leading){
-                                        Text(person.fullName)
-                                    }
-                                }
-                            }
+                }
             }
             .navigationTitle ("Contact list")
         }
-            
+        
     }
 }
 
